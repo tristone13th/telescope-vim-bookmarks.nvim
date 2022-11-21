@@ -46,8 +46,7 @@ local function make_entry_from_bookmarks(opts)
 	local displayer = entry_display.create({
 		separator = "▏",
 		items = {
-			{ width = opts.width_line or 5 },
-			{ width = opts.width_text or 60 },
+			{ width = opts.width_text or 20 },
 			{ remaining = true },
 		},
 	})
@@ -63,12 +62,9 @@ local function make_entry_from_bookmarks(opts)
 			end
 		end
 
-		local line_info = { entry.lnum, "TelescopeResultsLineNr" }
-
 		return displayer({
-			line_info,
-			entry.text:gsub(".* | ", ""),
 			filename,
+			entry.text:gsub(".* | ", ""),
 		})
 	end
 
